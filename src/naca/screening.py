@@ -3,7 +3,7 @@
 Screening by largest ``|w_i|`` picks strong *marginal* effects and structurally
 excludes the components we are hunting: near-zero linear coefficient, large
 interaction effect. That is the weak-marginal/strong-interaction problem
-(CLAUDE.md 2.3), so the default scores instead how much each component
+(the design spec 2.3), so the default scores instead how much each component
 modulates the **magnitude** of the additive model's error:
 
     S[i,z] = | mean_t( X[t,i] * R[t,z]^2 ) - mean_t(X[t,i]) * mean_t(R[t,z]^2) |

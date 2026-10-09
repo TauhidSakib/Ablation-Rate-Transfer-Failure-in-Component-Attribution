@@ -4,7 +4,7 @@ Extends COAR (Shah, Ilyas & Madry 2024, arXiv:2404.11534) with a low-rank
 *indefinite* interaction model fitted on the counterfactual data COAR already
 collects -- zero additional forward passes through the target model.
 
-Build order (CLAUDE.md section 6) is diagnostic -> estimator -> editing, and is
+Build order (the design spec section 6) is diagnostic -> estimator -> editing, and is
 not to be reordered: the diagnostic yields a reportable measurement whatever the
 sign of the result.
 """

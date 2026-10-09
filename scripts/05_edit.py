@@ -11,7 +11,7 @@ COAR-EDIT runs **first** and must reproduce the base paper qualitatively before
 NACA-EDIT is believed. Both are then measured the same way: the selected
 components are really ablated in the model and the true ``(epsilon, delta)`` from
 Definition 3 is read off. Surrogate-predicted effects are search signal only and
-are never reported as results (CLAUDE.md 2.5, 8).
+are never reported as results (the design spec 2.5, 8).
 
 The interaction model used here is fitted on a **shared** pool, because greedy
 selection has to compare the same component index across examples.

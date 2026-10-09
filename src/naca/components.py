@@ -1,7 +1,7 @@
 """Enumerate model components -> a flat, stable component index.
 
 A *component* is one convolutional filter: one output channel of one conv layer
-(CLAUDE.md 2.1).
+(the design spec 2.1).
 
 Enumeration convention
 ----------------------
@@ -35,7 +35,7 @@ __all__ = [
     "KNOWN_COUNTS",
 ]
 
-# Counts quoted by the base paper, for side-by-side logging (CLAUDE.md 8).
+# Counts quoted by the base paper, for side-by-side logging (the design spec 8).
 KNOWN_COUNTS: dict[str, dict[str, int]] = {
     "resnet18_cifar": {"paper_section4": 2306, "paper_appendixA2": 2344},
     "resnet50": {"paper": 22720},

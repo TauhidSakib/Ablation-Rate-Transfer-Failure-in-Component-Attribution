@@ -300,7 +300,7 @@ def main() -> int:
                 checkpoint_every=cfg.checkpoint_every,
                 log_every=cfg.m_test,
             )
-            # Var(f_M) per alpha is the signal-to-noise diagnostic of CLAUDE.md 2.7
+            # Var(f_M) per alpha is the signal-to-noise diagnostic of the design spec 2.7
             metrics["sets"][tag] = {
                 "alpha": alpha,
                 "m": cfg.m_test,

@@ -3,7 +3,7 @@
 Checks CUDA, bf16, free disk, cache redirection off C:, and write throughput on
 D:. Exits non-zero if any hard check fails, so it can gate a longer run.
 
-The C: free-space check is a **warning**, not a failure -- see CLAUDE.md section 9.
+The C: free-space check is a **warning**, not a failure -- see the design spec section 9.
 This machine has ~14 GB free on C:, below the spec's 20 GB, but every cache and
 temp path is redirected onto D: (hard rule 3), which is what that check was
 protecting against. The redirection itself is verified as a hard check instead.
@@ -132,7 +132,7 @@ def check_disk(rep: Report, min_d: float, min_c: float) -> None:
     rep.add(
         f"C: free >= {min_c:.0f} GB",
         c >= min_c,
-        f"{c:.1f} GB free -- soft check; all caches redirected to D: (CLAUDE.md section 9)",
+        f"{c:.1f} GB free -- soft check; all caches redirected to D: (the design spec section 9)",
         hard=False,
     )
 

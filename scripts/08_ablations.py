@@ -1,4 +1,4 @@
-"""Phase 10 -- the required ablation table (CLAUDE.md section 7).
+"""Phase 10 -- the required ablation table (the design spec section 7).
 
 Each row re-runs `04_fit_naca.py` with one knob changed and collects the headline
 numbers into a single CSV. Rows are driven as subprocesses so every arm goes

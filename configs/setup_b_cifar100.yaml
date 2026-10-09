@@ -1,6 +1,6 @@
 # Setup B -- ResNet-18 / CIFAR-100 (WP8).
 # Isolates the DATASET: architecture, component definition and seed are identical
-# to setup A-s1. Pre-registration: results/WP8_WP9_prereg.md
+# to setup A-s1. Pre-registration: the WP8/WP9 pre-registration
 setup: B
 arch: resnet18_cifar
 dataset: cifar100

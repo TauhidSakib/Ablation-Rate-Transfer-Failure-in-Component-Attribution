@@ -1,5 +1,5 @@
 # Waits for the Stage-3 fit to finish, then collects the extra alpha_train sets
-# the multi-alpha danger baseline needs (CLAUDE.md Phase 6).
+# the multi-alpha danger baseline needs (the design spec Phase 6).
 #
 # Sequenced rather than parallel: two torch processes cannot coexist on this
 # machine (OSError WinError 1455, paging file), and two collectors on one run

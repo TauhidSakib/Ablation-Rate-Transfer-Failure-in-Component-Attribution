@@ -1,7 +1,7 @@
 """Configuration objects for NACA.
 
 Every knob lives here or in ``configs/*.yaml`` -- nothing is hard-coded in the
-scripts (CLAUDE.md section 5.6). ``load_config`` validates aggressively and
+scripts (the design spec section 5.6). ``load_config`` validates aggressively and
 fails loudly, because a silent config typo costs hours on a 50k-mask run.
 """
 
@@ -95,7 +95,7 @@ class BackdoorConfig:
     patch_size: int = 4
     patch_row: int = 0
     patch_col: int = 0
-    # RGB in [0,1]; "blue" per CLAUDE.md section 3
+    # RGB in [0,1]; "blue" per the design spec section 3
     patch_rgb: tuple[float, float, float] = (0.0, 0.0, 1.0)
     poison_fraction: float = 0.5
 
@@ -269,7 +269,7 @@ def set_seeds(seed: int) -> dict[str, int]:
     torch.manual_seed(seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(seed)
-    # Deliberately NOT enabling full cuDNN determinism (CLAUDE.md 5.4):
+    # Deliberately NOT enabling full cuDNN determinism (the design spec 5.4):
     # reproducibility comes from persisting the mask matrix instead.
     torch.backends.cudnn.benchmark = True
     return {"python": seed, "numpy": seed, "torch": seed}

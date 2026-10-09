@@ -4,7 +4,7 @@ Windows forces ``num_workers=0`` (hard rule 1), which makes a normal DataLoader
 the bottleneck for small images. CIFAR-10 is only 150 MB as uint8, so we skip
 DataLoader entirely: the whole split lives on the GPU and augmentation is done
 there too. This is the same trick that replaces FFCV during collection
-(CLAUDE.md 5.1) -- once the data is resident, the run is purely compute-bound.
+(the design spec 5.1) -- once the data is resident, the run is purely compute-bound.
 """
 
 from __future__ import annotations
@@ -222,7 +222,7 @@ def load_dataset(
     Every script routes through here so that adding a dataset does not mean
     editing a hardcoded ``load_cifar10`` and ``num_classes=10`` in seven places --
     which is exactly the kind of default that produced the wrong-checkpoint bug in
-    results/BUG_precision_floor_wrong_checkpoint.md.
+    the precision-floor checkpoint guard.
     """
     key = dataset.lower().replace("-", "")
     if key == "cifar10":
@@ -236,7 +236,7 @@ def load_dataset(
 def apply_backdoor_patch(images_uint8: torch.Tensor, cfg: BackdoorConfig) -> torch.Tensor:
     """Stamp the trigger patch onto a copy of ``images_uint8``.
 
-    CLAUDE.md 3: a blue ``patch_size x patch_size`` square in the top-left corner.
+    the design spec 3: a blue ``patch_size x patch_size`` square in the top-left corner.
     """
     if images_uint8.dtype != torch.uint8:
         raise TypeError(f"expected uint8 images, got {images_uint8.dtype}")

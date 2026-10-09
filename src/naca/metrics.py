@@ -1,6 +1,6 @@
 """Metrics: margins, per-example rho / R^2 / MSE, NAF, (epsilon, delta), Wilcoxon.
 
-Everything here is fp32 (CLAUDE.md 5.4) and column-wise: the convention across
+Everything here is fp32 (the design spec 5.4) and column-wise: the convention across
 the codebase is that a matrix of shape ``(m, E)`` holds ``m`` counterfactual
 observations for each of ``E`` evaluation examples, so every metric returns a
 length-``E`` vector -- one number per example ``z``.
@@ -31,7 +31,7 @@ __all__ = [
 
 # ---------------------------------------------------------------- margins
 def correct_class_margin(logits: torch.Tensor, labels: torch.Tensor) -> torch.Tensor:
-    """``logit_y - max_{y' != y} logit_{y'}`` (CLAUDE.md 2.1).
+    """``logit_y - max_{y' != y} logit_{y'}`` (the design spec 2.1).
 
     Returned in fp32 regardless of the autocast dtype used for the forward pass.
     """
@@ -85,7 +85,7 @@ def r2_score(y_true: np.ndarray, y_pred: np.ndarray) -> np.ndarray:
 def r2_offset_corrected(y_true: np.ndarray, y_pred: np.ndarray) -> np.ndarray:
     """R^2 after removing the best constant offset per column.
 
-    Required by `results/FINDING_gauge_degeneracy.md`. Fixed-size subset sampling
+    Required by `the gauge-degeneracy analysis`. Fixed-size subset sampling
     leaves the additive model identifiable only up to ``w -> w + c*1``, and at
     ``alpha_test != alpha_train`` that unidentifiable constant shows up as a pure
     offset of size ``c*(k_train - k_test)`` -- which inflates raw R^2 and MSE the
@@ -137,7 +137,7 @@ def paired_wilcoxon(a: np.ndarray, b: np.ndarray, alternative: str = "greater") 
     """Paired Wilcoxon signed-rank of ``a`` vs ``b`` across examples.
 
     Paired because the same example ``z`` is scored under both models
-    (CLAUDE.md 2.6) -- an unpaired test would be wrong here.
+    (the design spec 2.6) -- an unpaired test would be wrong here.
     """
     from scipy.stats import wilcoxon
 

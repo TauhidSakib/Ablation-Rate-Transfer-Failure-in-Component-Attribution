@@ -1,6 +1,6 @@
-"""Score WP8 and WP9 against results/WP8_WP9_prereg.md.
+"""Score WP8 and WP9 against the WP8/WP9 pre-registration.
 
-Thresholds are the ones committed before either setup was trained. They are
+Thresholds are committed in advance, before either setup is trained. They are
 hard-coded here, not passed in, so a run cannot quietly move them:
 
   C1 transfer   oracle rho strictly monotone DECREASING in alpha, AND

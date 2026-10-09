@@ -1,6 +1,6 @@
 """Stage 1 -- linear COAR: the baseline, and the screening signal for Stage 2.
 
-This is the base paper reproduced unmodified (CLAUDE.md 2.2). Two things it
+This is the base paper reproduced unmodified (the design spec 2.2). Two things it
 produces are load-bearing downstream:
 
 * ``W`` -- the additive attribution, and the ``|w_i|`` marginal-screening
@@ -146,7 +146,7 @@ def evaluate_predictions(
     All three are reported at every alpha, never rho alone: the base paper's
     Fig. 13 shows correlation decaying on *both* sides of alpha_train, and only
     R^2 and the raw variance can separate misspecification from the
-    signal-to-noise collapse at small alpha (CLAUDE.md 2.7).
+    signal-to-noise collapse at small alpha (the design spec 2.7).
     """
     rho = pearson_r(y_true, y_pred)
     r2 = r2_score(y_true, y_pred)

@@ -154,7 +154,7 @@ def main() -> int:
         if best > 0.05:
             print(
                 "[DANGER BASELINE] *** multi-alpha linear COAR substantially closes the "
-                "OOD gap. Per CLAUDE.md Phase 6, STOP and re-scope: the interaction "
+                "OOD gap. Per the design spec Phase 6, STOP and re-scope: the interaction "
                 "story for *prediction* is undercut. Pivot to editing (H4) plus the "
                 "SNR/misspecification diagnostic. ***"
             )

@@ -1,7 +1,7 @@
 """Ridge least squares over a *shared* binary design matrix.
 
 The design matrix ``X in {0,1}^{m x N}`` is the same for every evaluation
-example -- only the targets differ (CLAUDE.md 2.2). So the normal equations are
+example -- only the targets differ (the design spec 2.2). So the normal equations are
 formed once and all ``E`` examples are solved simultaneously.
 
 Conditioning -- why this is solved centered
@@ -132,7 +132,7 @@ def normal_equations(
     """Accumulate the centered normal equations in row chunks.
 
     ``X`` is never materialized in full: at ``N = 22,720``, ``m = 50,000`` that
-    would be 4.5 GB in fp32 (CLAUDE.md 5.3).
+    would be 4.5 GB in fp32 (the design spec 5.3).
     """
     m, N = len(masks), masks.N
     if Y.shape[0] != m:

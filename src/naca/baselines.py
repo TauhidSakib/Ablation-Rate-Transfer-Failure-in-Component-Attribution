@@ -1,6 +1,6 @@
 """Competing estimators, including the one that could sink the paper.
 
-**Multi-alpha linear COAR is the danger baseline** (CLAUDE.md Phase 6). The whole
+**Multi-alpha linear COAR is the danger baseline** (the design spec Phase 6). The whole
 interaction story rests on the claim that the additive model degrades away from
 ``alpha_train`` *because it is misspecified*. But a much duller explanation is
 available: a linear model fitted at one ablation rate is simply mis-calibrated

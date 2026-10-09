@@ -4,7 +4,7 @@ This is the only expensive stage in the project; everything downstream re-uses
 what it produces (that re-use is contribution 2: **zero additional forward
 passes**). Two decisions carry the performance:
 
-**Loop order: masks outer, examples inner** (CLAUDE.md 5.1). Weight-writing is
+**Loop order: masks outer, examples inner** (the design spec 5.1). Weight-writing is
 per-mask and forward cost is per-example; reversing the loops would pay the
 weight write ``E`` times per mask.
 
@@ -233,7 +233,7 @@ def collect_counterfactuals(
         Y.flush()
         state.save()
 
-    # --- integrity: a NaN margin means a degenerate ablation (CLAUDE.md 5.4)
+    # --- integrity: a NaN margin means a degenerate ablation (the design spec 5.4)
     arr = np.asarray(Y)
     bad = ~np.isfinite(arr)
     if bad.any():

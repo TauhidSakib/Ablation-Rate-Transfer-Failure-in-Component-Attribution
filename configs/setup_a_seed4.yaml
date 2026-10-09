@@ -1,10 +1,10 @@
 # Setup A -- ResNet-18 / CIFAR-10. The development setup: everything is
-# validated here before anything is ported (CLAUDE.md section 3).
+# validated here before anything is ported (the design spec section 3).
 setup: A-s4
 arch: resnet18_cifar
 dataset: cifar10
 
-# N resolved empirically -- see results/FINDING_component_count.md.
+# N resolved empirically -- see the component-count analysis.
 # build_component_index raises if the enumerated count ever drifts from this.
 n_components: 3904
 

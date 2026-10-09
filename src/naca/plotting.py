@@ -7,7 +7,7 @@ Design rules this module follows, deliberately:
   method keeps its colour in every figure, whether or not the others are drawn.
 * **No dual-axis plots, ever.** ``Var(f_M)`` shares an x-axis with rho/R^2/MSE
   but lives in its own panel of a small-multiples grid, because a second y-scale
-  invites exactly the misreading CLAUDE.md 2.7 is trying to prevent.
+  invites exactly the misreading the design spec 2.7 is trying to prevent.
 * **Text wears ink colours, not series colours**; marks carry identity.
 * Every series is both legend-labelled and (where <= 4 series) direct-labelled,
   so identity never rests on colour alone. The aqua slot sits below 3:1 contrast
@@ -275,7 +275,7 @@ def fig_naf_vs_alpha(df, alpha_train: float, *, title: str = "Non-additive fract
     """Base-paper Fig. 14 analogue: NAF vs alpha, raw and offset-corrected.
 
     Both gauges are drawn because raw ``R^2`` is not gauge-invariant out of
-    distribution (see results/FINDING_gauge_degeneracy.md) and reporting only the
+    distribution (see the gauge-degeneracy analysis) and reporting only the
     raw curve could manufacture an H2-shaped result.
     """
     import matplotlib.pyplot as plt

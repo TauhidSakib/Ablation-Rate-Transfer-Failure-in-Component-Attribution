@@ -53,7 +53,7 @@ def test_precision_floor_is_a_variance_share():
     """A floor is noise/residual. Any run reporting one outside [0,1) is a bug.
 
     This is the dimensional check that caught the wrong-checkpoint bug; see
-    results/BUG_precision_floor_wrong_checkpoint.md.
+    the precision-floor checkpoint guard.
     """
     import json
 

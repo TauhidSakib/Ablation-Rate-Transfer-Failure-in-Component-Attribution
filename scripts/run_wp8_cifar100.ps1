@@ -1,4 +1,4 @@
-# WP8 -- CIFAR-100 / ResNet-18. Pre-reg: results/WP8_WP9_prereg.md
+# WP8 -- CIFAR-100 / ResNet-18. Pre-reg: the WP8/WP9 pre-registration
 # Every stage is passed --config explicitly. Omitting it on one stage can
 # silently load the wrong checkpoint.
 $ErrorActionPreference="Continue"

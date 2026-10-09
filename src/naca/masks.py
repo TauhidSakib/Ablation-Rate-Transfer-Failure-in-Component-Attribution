@@ -1,7 +1,7 @@
 """Bit-packed ablation-mask store.
 
 A ``50,000 x 22,720`` float32 mask matrix is 4.5 GB; bit-packed along the
-component axis it is 142 MB (CLAUDE.md 5.2). Masks are generated from a seeded
+component axis it is 142 MB (the design spec 5.2). Masks are generated from a seeded
 ``np.random.default_rng`` in fixed-size chunks, so the whole matrix regenerates
 deterministically from ``(seed, N, alpha, m)`` -- :meth:`MaskStore.verify`
 re-derives it and compares, which is the reproducibility guarantee that lets us

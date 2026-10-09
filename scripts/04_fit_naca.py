@@ -7,7 +7,7 @@ This is the anchor result. It answers, on held-out counterfactuals:
   examples.
 * **H2** -- does the gap grow for ``alpha_test > alpha_train``? Reported
   one-sided, alongside ``Var(f_M)`` so the small-alpha signal-to-noise collapse
-  is visible rather than mistaken for misspecification (CLAUDE.md 2.7).
+  is visible rather than mistaken for misspecification (the design spec 2.7).
 * **H3** -- is non-additivity concentrated in late layers? NAF stratified by the
   depth group of the pooled components.
 
@@ -15,7 +15,7 @@ Costs **zero additional forward passes** through the target model: every input
 here was produced by Phase 3 and Phase 4.
 
 Both raw and offset-corrected R^2 are reported at every alpha. See
-`results/FINDING_gauge_degeneracy.md` -- raw R^2 is not gauge-invariant OOD, and
+`the gauge-degeneracy analysis` -- raw R^2 is not gauge-invariant OOD, and
 reporting it alone could manufacture an H2-shaped result out of an arbitrary
 choice the ridge solver made.
 """

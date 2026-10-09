@@ -227,7 +227,7 @@ def main() -> int:
     print("      Damage saturates almost immediately at block granularity, so severity")
     print("      cannot be varied independently of cardinality here. That is a finding")
     print("      about coarse units, and it is also why this test has little power --")
-    print("      the filter-level test (corr(alpha, oracle rho) = -0.976) is the one")
+    print("      the filter-level test (corr of alpha vs oracle rho) is the one")
     print("      with real leverage and it is the one that carries the claim.")
 
     # Verdict reads the BALANCED correlation (the OLS one carries the weighting
@@ -242,7 +242,7 @@ def main() -> int:
             f"WEAK/INCONCLUSIVE -- balanced corr {pbal:+.3f} has the predicted sign but is "
             f"far too small, on 8 strata spanning only {(sv.max() - sv.min()) / sv.mean():.0%} "
             f"in severity, to be independently informative. Directionally consistent with the "
-            f"filter-level result (corr(alpha, oracle rho) = -0.976); a consistency check, not "
+            f"filter-level result (corr of alpha vs oracle rho); a consistency check, not "
             f"evidence in its own right."
         )
     print()

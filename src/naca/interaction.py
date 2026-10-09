@@ -1,7 +1,7 @@
 """Stage 3 -- the indefinite low-rank interaction model.
 
 A standard factorization machine parameterizes ``A = VV'``, which is positive
-semi-definite. That is the wrong prior twice over (CLAUDE.md 2.4): there is no
+semi-definite. That is the wrong prior twice over (the design spec 2.4): there is no
 reason redundant and complementary components should interact with the same
 sign, and a convex quadratic set function is supermodular, which would destroy
 any guarantee for the greedy selection in Stage 4. So::

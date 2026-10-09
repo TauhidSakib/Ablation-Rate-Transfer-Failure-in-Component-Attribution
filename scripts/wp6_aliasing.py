@@ -1,6 +1,6 @@
 """WP6 -- numerical checks for the coarsening-aliasing theorem.
 
-Theorem in results/THEOREM_aliasing.md. Two checks, both on the collected counterfactuals:
+Theorem in the aliasing theorem. Two checks, both on the collected counterfactuals:
 
 CHECK 1 -- exact validation of the aggregation map.
     Coarsen the 9 blocks into 3 supergroups. Predict the supergroup Walsh

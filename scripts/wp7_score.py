@@ -1,15 +1,11 @@
 """Score WP7 against its pre-registration and emit the final two-seed table.
 
-Pre-registration: results/PREREG_wp7_seed2_full.md, written in advance.
-Reading committed in advance:
+Pre-registration: the WP7 pre-registration, written in advance.
 
-  NAF(K=25) rises toward ~0.029  -> the seed-2 shortfall was screening noise from
-                                    half the masks; concentration REPLICATES.
-  NAF(K=25) stays near ~0.0048   -> the magnitude of concentrated structure is
-                                    seed-dependent while its existence is not.
-  anything in between            -> report the value and decline to call it either.
-
-Nothing here is tuned. The thresholds below are the ones written down beforehand.
+Compares seed-2 NAF(K=25) at matched budget against the pre-registered
+thresholds and prints a verdict: replication of magnitude, replication of the
+phenomenon only, or inconclusive. Fill the thresholds below in from your own
+pre-registration before running; nothing here is tuned to the data.
 """
 
 from __future__ import annotations
@@ -80,15 +76,20 @@ def main() -> int:
     print(f"  seed2 NAF(K=25), m=50k        : {s2b_25:.5f}   <- the test")
     print()
 
-    # thresholds as pre-registered: "toward ~0.029" vs "stays near ~0.0048"
-    hi, lo = 0.029, 0.0048
+    # Pre-registered thresholds: fill these in from your own pre-registration
+    # (high = "magnitude replicates", low = "phenomenon only") before running.
+    hi, lo = None, None
+    if hi is None or lo is None:
+        raise SystemExit(
+            "wp7_score: set `hi` and `lo` from your own pre-registration first."
+        )
 
     if s2b_25 >= 0.6 * hi:
-        verdict = ("BUDGET. The seed-2 shortfall was screening noise from half the masks. "
-                   "Concentration REPLICATES; quote the matched-m numbers for both seeds.")
+        verdict = ("ABOVE HIGH THRESHOLD: magnitude replicates at matched budget; "
+                   "quote the matched-m numbers for both seeds.")
     elif s2b_25 <= 1.6 * lo:
-        verdict = ("SEED-DEPENDENT MAGNITUDE. The existence of concentrated structure replicates "
-                   "(K=25 >> K=100 on both seeds); its size does not. Report as a range.")
+        verdict = ("BELOW LOW THRESHOLD: the phenomenon replicates "
+                   "(K=25 >> K=100 on both seeds); its magnitude does not. Report as a range.")
     else:
         verdict = (f"INTERMEDIATE ({s2b_25:.5f}, between {lo} and {hi}). Per the pre-registration, "
                    f"report the value and decline to call it either way.")
@@ -119,7 +120,7 @@ def main() -> int:
 
     out = {"table": {str(k): v for k, v in table.items()}, "verdict": verdict,
            "ratio_seed1": ratio_1, "ratio_seed2_50k": ratio_2,
-           "note": "thresholds fixed in PREREG_wp7_seed2_full.md in advance"}
+           "note": "thresholds fixed in the WP7 pre-registration in advance"}
     (ROOT / "results" / "wp7_score.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
     print(f"\nwrote {ROOT / 'results' / 'wp7_score.json'}")
 

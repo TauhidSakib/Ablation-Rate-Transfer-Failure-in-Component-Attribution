@@ -1,4 +1,4 @@
-# WP7 -- seed 2 at full budget. Pre-reg: results/PREREG_wp7_seed2_full.md
+# WP7 -- seed 2 at full budget. Pre-reg: the WP7 pre-registration
 $ErrorActionPreference="Continue"
 $root="D:\naca"; $py="$root\venv\Scripts\python.exe"
 $cfg="$root\configs\setup_a_seed1_full.yaml"; $log="$root\runs\wp7.log"

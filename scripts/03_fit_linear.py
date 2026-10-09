@@ -17,8 +17,8 @@ additional forward passes through the target model:
 * ``lin_pred_*.npy``   -- Stage-1 predictions on train and each alpha_test set
 
 Every metric is reported at every alpha as rho, R^2, offset-corrected R^2, MSE
-and ``Var(f_M)`` together -- see CLAUDE.md 2.7 and
-`results/FINDING_gauge_degeneracy.md` for why no single one of them is enough.
+and ``Var(f_M)`` together -- see the design spec 2.7 and
+`the gauge-degeneracy analysis` for why no single one of them is enough.
 """
 
 from __future__ import annotations
@@ -226,7 +226,7 @@ def main() -> int:
         if not passed and gate_applies:
             print(
                 "[gate] Note: our N=3904 vs the paper's ~2306 (see "
-                "results/FINDING_component_count.md) means fewer samples per "
+                "the component-count analysis) means fewer samples per "
                 "parameter. Try --lam-sweep before concluding there is a bug."
             )
 

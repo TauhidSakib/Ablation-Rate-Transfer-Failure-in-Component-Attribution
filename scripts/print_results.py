@@ -249,15 +249,14 @@ def main() -> int:
                 # NOT a null verdict. The finding is CONCENTRATION: NAF is large in a
                 # small pool and falls as the pool widens. Report the spread and the
                 # floor, never a single number. See PAPER.md 5.4.
-                FLOOR = 0.00025  # bf16, seed 1; seed 2 is 0.00027
+                FLOOR = 0.00025  # bf16 noise floor (reference)
                 lo, hi = float(n.min()), float(n.max())
                 print(f"  -> spread {hi / max(lo, 1e-12):.0f}x across arms; "
                       f"floor {FLOOR:.5f} ({hi / FLOOR:.0f}x at the top arm, "
                       f"{lo / FLOOR:.1f}x at the bottom)")
                 print("     Read as CONCENTRATION, not a null. Arms at or below the floor "
                       "are not measurements;")
-                print("     never quote one without the floor. Range across seeds: "
-                      "0.018-0.029 at K=25.")
+                print("     never quote one without the floor.")
 
     # ------------------------------------------------------------ errors
     rule("9. FAILURES IN ANY LOG")
@@ -274,7 +273,7 @@ def main() -> int:
         print("  none")
 
     rule()
-    print("findings: results/FINDING_*.md   paper: PAPER.md   limits: results/LIMITATIONS.md")
+    print("paper: PAPER.md")
     return 0
 
 

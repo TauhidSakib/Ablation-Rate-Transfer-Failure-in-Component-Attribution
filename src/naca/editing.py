@@ -6,7 +6,7 @@ redundancy (two components that do the same job, so ablating both buys little)
 or complementarity (two that only matter together). NACA-EDIT replaces the
 ranking with greedy forward search under the fitted surrogate, which can.
 
-The greedy step is ``O(K)``, not a re-evaluation of ``g`` (CLAUDE.md 2.5). With
+The greedy step is ``O(K)``, not a re-evaluation of ``g`` (the design spec 2.5). With
 ``diag(A) = 0``::
 
     g(v) = b + w'v + (1/2) v'Av
@@ -281,7 +281,7 @@ def verify_edit(
 
     ``measure(components)`` must return ``(target_margins, reference_margins)``;
     ``measure(None)`` returns the unedited baselines. Surrogate predictions never
-    appear in a reported result (CLAUDE.md 2.5, 8).
+    appear in a reported result (the design spec 2.5, 8).
     """
     from .metrics import edit_epsilon_delta
 

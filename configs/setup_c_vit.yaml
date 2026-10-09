@@ -1,6 +1,6 @@
 # Setup C -- ViT-Tiny / CIFAR-10 (WP9).
 # Isolates the ARCHITECTURE and COMPONENT TYPE: the dataset is held fixed at
-# CIFAR-10. Pre-registration: results/WP8_WP9_prereg.md
+# CIFAR-10. Pre-registration: the WP8/WP9 pre-registration
 setup: C
 arch: vit_tiny_cifar
 dataset: cifar10

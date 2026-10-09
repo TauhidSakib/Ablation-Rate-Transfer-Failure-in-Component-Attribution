@@ -1,6 +1,6 @@
 """Test 4 -- the Cholesky and matrix-free CG paths must agree.
 
-Read `results/FINDING_gauge_degeneracy.md` before changing anything here. Because
+Read `the gauge-degeneracy analysis` before changing anything here. Because
 every mask ablates exactly ``k`` components, every row of ``X`` sums to ``N - k``
 and the all-ones vector is *exactly* in the null space of the centered design.
 So ``w`` is identifiable only up to ``w -> w + c*1`` (with ``b`` absorbing the

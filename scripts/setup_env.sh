@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Creates D:\naca\venv with the exact stack CLAUDE.md pins.
+# Creates D:\naca\venv with the exact stack the design spec pins.
 # All caches/temp redirected onto D: (hard rule 3: never write to C:).
 set -euo pipefail
 

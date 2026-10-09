@@ -31,8 +31,8 @@ Four experiments:
      **method**, not the estimator: the right answer is known, so what the
      sampling protocol costs can be measured rather than argued.
 
-  4  IS THE SATURATION A GRANULARITY ARTIFACT? The ~6x decline in marginal effect
-     measured at filter granularity, recomputed exactly here. Surviving means it is
+  4  IS THE SATURATION A GRANULARITY ARTIFACT? The decline in marginal effect
+     seen at filter granularity, recomputed exactly here. Surviving means it is
      a property of the network; vanishing means it is specific to filter
      granularity. Either answer is sharp.
 

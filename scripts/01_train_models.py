@@ -1,6 +1,6 @@
 """Phase 2 -- train the target model, and gate on test accuracy.
 
-Gate (CLAUDE.md section 6): test accuracy ~= 91%, the base paper's number for
+Gate (the design spec section 6): test accuracy ~= 91%, the base paper's number for
 CIFAR-10 ResNet-18. Read as a *floor*: exceeding it is not a failure, so the
 gate fails below ``target_acc - acc_tolerance`` and merely reports above
 ``target_acc + acc_tolerance``. Beating the base paper does not invalidate a

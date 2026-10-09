@@ -1,7 +1,7 @@
 """Apply and restore component ablations.
 
 Ablation = zero every weight that carries a component's output onward
-(CLAUDE.md 2.1). For a conv filter that is its own output channel; for an
+(the design spec 2.1). For a conv filter that is its own output channel; for an
 attention head or MLP neuron group (WP9) it is the corresponding input columns
 of the projection that consumes it. ``LayerSpec.param_axis`` and
 ``LayerSpec.unit_width`` carry that distinction, and default to the conv case. BatchNorm affine
