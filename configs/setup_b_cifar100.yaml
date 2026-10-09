@@ -1,0 +1,70 @@
+# Setup B -- ResNet-18 / CIFAR-100 (WP8).
+# Isolates the DATASET: architecture, component definition and seed are identical
+# to setup A-s1. Pre-registration: results/WP8_WP9_prereg.md
+setup: B
+arch: resnet18_cifar
+dataset: cifar100
+
+# Asserted, not resolved. The enumeration counts conv filters and must not depend
+# on the number of output classes; a mismatch here is its own finding.
+n_components: 3904
+
+alpha_train: 0.10
+m_train: 25000
+# Four training rates {0.01, 0.05, 0.10, 0.20} via --extra-train-alphas.
+# The grid additionally carries {0.03, 0.075, 0.15}, which are STRICTLY HELD OUT
+# from every training pool and are where criterion C1's second clause is scored.
+alpha_test_grid: [0.01, 0.03, 0.05, 0.075, 0.10, 0.15, 0.20]
+m_test: 2000
+n_eval_examples: 1000
+
+K: 100
+screening: residual
+
+r_U: 8
+r_P: 8
+lambda_ridge: 1.0
+lambda_fm: 1.0e-4
+freeze_linear: true
+fm_lr: 1.0e-2
+fm_epochs: 20
+fm_batch_size: 1024
+fm_init_std: 0.01
+psd_only: false
+
+fdr_filter: true
+fdr_q: 0.10
+lambda_edit: 1.0
+k_edit: 32
+gain_tol: 1.0e-6
+
+seed: 1
+batch_size: 512
+eval_sub_batch: 1000
+use_compile: false
+solver: auto
+device: cuda
+dtype_forward: bf16
+num_workers: 0
+cg_tol: 1.0e-6
+cg_max_iter: 500
+checkpoint_every: 1000
+min_free_gb_d: 40.0
+min_free_gb_c: 20.0
+
+train:
+  epochs: 30
+  lr: 0.5
+  momentum: 0.9
+  weight_decay: 5.0e-4
+  label_smoothing: 0.0
+  batch_size: 512
+  lr_schedule: triangular
+  lr_peak_epoch: 5
+  # CIFAR-100 with the same recipe lands well below the CIFAR-10 target. This is
+  # a scope gate, not a tuning target: we do not tune for accuracy (prereg).
+  target_acc: 0.70
+  acc_tolerance: 0.08
+
+backdoor:
+  enabled: false

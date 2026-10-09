@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "naca"
+version = "0.1.0"
+description = "Non-Additive Component Attribution - diagnosing and exploiting component interactions"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "numpy",
+    "scipy",
+    "pandas",
+    "pyyaml",
+    "matplotlib",
+    "tqdm",
+    "psutil",
+    "scikit-learn",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "black"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "scripts", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+ignore = [
+    "E501",   # line length is black's job
+    "B905",   # zip strict= is noisy for numeric code
+    "SIM108", # ternaries are not always clearer
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+markers = [
+    "slow: needs a real model or long fit",
+    "gpu: requires CUDA",
+]
+filterwarnings = ["ignore::DeprecationWarning"]

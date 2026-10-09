@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------- environment
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ------------------------------------------------------------ data and weights
+# CIFAR-10/100 are downloaded by the pipeline; do not vendor them.
+data/
+models/          # trained checkpoints, ~45 MB each
+cache/           # TORCH_HOME / HF_HOME / matplotlib / tmp
+
+# --------------------------------------------------------------- run artifacts
+# Counterfactual collections are the bulk of the project: a single run dir holds
+# Y_train.npy at ~95 MB plus per-alpha test sets. Regenerate with the pipeline;
+# the small JSON/CSV summaries that the paper actually cites are whitelisted
+# below so the evidence behind every number stays in the repo.
+runs/*
+!runs/.gitkeep
+!runs/**/
+runs/**/*.npy
+runs/**/*.npz
+runs/**/*.log
+runs/**/*.err
+runs/**/*.lock
+
+masks/
+attribs/
+
+# ------------------------------------------------------------------- third party
+# Papers downloaded for the related-work check are not ours to redistribute.
+refs/
+
+# ------------------------------------------------------------------------- misc
+*.tmp
+*.bak
+*.orig
+.DS_Store
+Thumbs.db

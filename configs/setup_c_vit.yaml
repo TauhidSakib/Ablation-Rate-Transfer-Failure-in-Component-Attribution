@@ -1,0 +1,70 @@
+# Setup C -- ViT-Tiny / CIFAR-10 (WP9).
+# Isolates the ARCHITECTURE and COMPONENT TYPE: the dataset is held fixed at
+# CIFAR-10. Pre-registration: results/WP8_WP9_prereg.md
+setup: C
+arch: vit_tiny_cifar
+dataset: cifar10
+
+# 12 blocks x (3 attention heads + 768/16 = 48 MLP neuron groups) = 612.
+# Asserted; the enumeration is tested in tests/test_vit_components.py.
+n_components: 612
+
+alpha_train: 0.10
+m_train: 25000
+alpha_test_grid: [0.01, 0.03, 0.05, 0.075, 0.10, 0.15, 0.20]
+m_test: 2000
+n_eval_examples: 1000
+
+K: 100
+screening: residual
+
+r_U: 8
+r_P: 8
+lambda_ridge: 1.0
+lambda_fm: 1.0e-4
+freeze_linear: true
+fm_lr: 1.0e-2
+fm_epochs: 20
+fm_batch_size: 1024
+fm_init_std: 0.01
+psd_only: false
+
+fdr_filter: true
+fdr_q: 0.10
+lambda_edit: 1.0
+k_edit: 32
+gain_tol: 1.0e-6
+
+seed: 1
+batch_size: 512
+eval_sub_batch: 1000
+use_compile: false
+solver: auto
+device: cuda
+dtype_forward: bf16
+num_workers: 0
+cg_tol: 1.0e-6
+cg_max_iter: 500
+checkpoint_every: 1000
+min_free_gb_d: 40.0
+min_free_gb_c: 20.0
+
+train:
+  # AdamW + cosine with warmup: the ResNet SGD recipe does not train a ViT.
+  optimizer: adamw
+  epochs: 100
+  lr: 1.0e-3
+  momentum: 0.9          # unused by AdamW; left for config-shape compatibility
+  weight_decay: 0.05
+  label_smoothing: 0.1
+  batch_size: 512
+  lr_schedule: cosine
+  lr_peak_epoch: 5       # unused by cosine
+  warmup_epochs: 5
+  # Scope gate, not a tuning target: ~85-90% is fine, we do not compete on
+  # accuracy (prereg). Achieved value is recorded either way.
+  target_acc: 0.87
+  acc_tolerance: 0.05
+
+backdoor:
+  enabled: false

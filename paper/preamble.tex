@@ -1,0 +1,84 @@
+
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}[Scale=MatchLowercase]
+
+\usepackage{amsmath,amssymb}
+\usepackage{newunicodechar}
+\usepackage{etoolbox}
+\usepackage{booktabs,longtable,array}
+\usepackage[table]{xcolor}
+\usepackage{microtype}
+
+% Tables here are numerous and some are wide. Shrink rather than overflow.
+\AtBeginEnvironment{longtable}{\footnotesize}
+\setlength{\LTpre}{0.8em}\setlength{\LTpost}{0.8em}
+
+% Block quotes carry formal statements (propositions, rules); set them off.
+\usepackage{framed}
+\colorlet{shadecolor}{gray!12}
+\renewenvironment{quote}{\begin{shaded}\vspace{-0.4em}}{\vspace{-0.4em}\end{shaded}}
+
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue!60!black,citecolor=black]{hyperref}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[font=small,labelfont=bf]{caption}
+% Figures are wide and information-dense; give them the full text width and let
+% them float rather than splitting a table across the break.
+\setkeys{Gin}{width=0.95\linewidth,keepaspectratio}
+
+\usepackage{fvextra}
+\fvset{breaklines=true,breakanywhere=true,fontsize=\small}
+
+% Long \texttt paths (results/PREREG_wp7_seed2_full.md) have no natural break
+% point and run into the margin. Permit a break after each underscore.
+\let\NACAunderscore\_
+\renewcommand{\_}{\NACAunderscore\allowbreak}
+\sloppy
+\emergencystretch=3em
+
+\newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{φ}{\ensuremath{\varphi}}
+\newunicodechar{ρ}{\ensuremath{\rho}}
+\newunicodechar{τ}{\ensuremath{\tau}}
+\newunicodechar{π}{\ensuremath{\pi}}
+\newunicodechar{σ}{\ensuremath{\sigma}}
+\newunicodechar{λ}{\ensuremath{\lambda}}
+\newunicodechar{χ}{\ensuremath{\chi}}
+\newunicodechar{Σ}{\ensuremath{\Sigma}}
+\newunicodechar{∏}{\ensuremath{\prod}}
+\newunicodechar{∈}{\ensuremath{\in}}
+\newunicodechar{∩}{\ensuremath{\cap}}
+\newunicodechar{∪}{\ensuremath{\cup}}
+\newunicodechar{∅}{\ensuremath{\emptyset}}
+\newunicodechar{≤}{\ensuremath{\leq}}
+\newunicodechar{≥}{\ensuremath{\geq}}
+\newunicodechar{≠}{\ensuremath{\neq}}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{√}{\ensuremath{\surd}}
+\newunicodechar{ℝ}{\ensuremath{\mathbb{R}}}
+\newunicodechar{∎}{\ensuremath{\blacksquare}}
+\newunicodechar{→}{\ensuremath{\rightarrow}}
+\newunicodechar{‖}{\ensuremath{\|}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{·}{\ensuremath{\cdot}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{±}{\ensuremath{\pm}}
+\newunicodechar{²}{\ensuremath{^{2}}}
+\newunicodechar{¹}{\ensuremath{^{1}}}
+\newunicodechar{⁹}{\ensuremath{^{9}}}
+\newunicodechar{⁻}{\ensuremath{^{-}}}
+\newunicodechar{ᵀ}{\ensuremath{^{\mathsf{T}}}}
+\newunicodechar{ᵢ}{\ensuremath{_{i}}}
+\newunicodechar{₁}{\ensuremath{_{1}}}
+\newunicodechar{₂}{\ensuremath{_{2}}}
+\newunicodechar{✔}{\ensuremath{\checkmark}}
+\newunicodechar{†}{\textdagger{}}
+\newunicodechar{β}{\ensuremath{\beta}}
+\newunicodechar{ε}{\ensuremath{\varepsilon}}
+\newunicodechar{⁴}{\ensuremath{^{4}}}
+\newunicodechar{⁶}{\ensuremath{^{6}}}
+\newunicodechar{…}{\ldots{}}
+\newunicodechar{ą}{\k{a}}

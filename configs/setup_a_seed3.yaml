@@ -1,0 +1,68 @@
+# Setup A -- ResNet-18 / CIFAR-10. The development setup: everything is
+# validated here before anything is ported (CLAUDE.md section 3).
+setup: A-s3
+arch: resnet18_cifar
+dataset: cifar10
+
+# N resolved empirically -- see results/FINDING_component_count.md.
+# build_component_index raises if the enumerated count ever drifts from this.
+n_components: 3904
+
+alpha_train: 0.10
+m_train: 25000
+alpha_test_grid: [0.01, 0.05, 0.10, 0.20]
+m_test: 2000
+n_eval_examples: 1000
+
+# Stage 2 -- screening
+K: 100
+screening: residual
+
+# Stage 3 -- indefinite low-rank interaction model
+r_U: 8
+r_P: 8
+lambda_ridge: 1.0
+lambda_fm: 1.0e-4
+freeze_linear: true
+fm_lr: 1.0e-2
+fm_epochs: 20
+fm_batch_size: 1024
+fm_init_std: 0.01
+psd_only: false
+
+# Stage 4 -- editing
+fdr_filter: true
+fdr_q: 0.10
+lambda_edit: 1.0
+k_edit: 32
+gain_tol: 1.0e-6
+
+# runtime
+seed: 3
+batch_size: 512
+eval_sub_batch: 1000
+use_compile: false
+solver: auto
+device: cuda
+dtype_forward: bf16
+num_workers: 0
+cg_tol: 1.0e-6
+cg_max_iter: 500
+checkpoint_every: 1000
+min_free_gb_d: 40.0
+min_free_gb_c: 20.0
+
+train:
+  epochs: 24
+  lr: 0.5
+  momentum: 0.9
+  weight_decay: 5.0e-4
+  label_smoothing: 0.0
+  batch_size: 512
+  lr_schedule: triangular
+  lr_peak_epoch: 5
+  target_acc: 0.91
+  acc_tolerance: 0.015
+
+backdoor:
+  enabled: false

@@ -1,0 +1,12 @@
+# Dot-source before any NACA command:  . D:\naca\scripts\naca_env.ps1
+$env:NACA_ROOT              = "D:\naca"
+$env:TORCH_HOME             = "D:\naca\cache\torch"
+$env:HF_HOME                = "D:\naca\cache\hf"
+$env:HUGGINGFACE_HUB_CACHE  = "D:\naca\cache\hf\hub"
+$env:MPLCONFIGDIR           = "D:\naca\cache\mpl"
+$env:PIP_CACHE_DIR          = "D:\naca\cache\pip"
+$env:XDG_CACHE_HOME         = "D:\naca\cache"
+$env:TMPDIR                 = "D:\naca\cache\tmp"
+$env:TEMP                   = "D:\naca\cache\tmp"
+$env:TMP                    = "D:\naca\cache\tmp"
+$env:PYTHONUTF8             = "1"
