@@ -2,7 +2,7 @@
 # Sequential because only one torch process fits in RAM on this machine.
 $ErrorActionPreference = "Continue"
 $root   = "D:\naca"
-$runDir = "$root\runs\20260824_015507_A_collect"
+$runDir = "$root\runs\YOUR_SEED1_COLLECT_DIR"
 $py     = "$root\venv\Scripts\python.exe"
 $state  = "$runDir\Y_train_a0p01.state.json"
 $log    = "$root\runs\chain.log"

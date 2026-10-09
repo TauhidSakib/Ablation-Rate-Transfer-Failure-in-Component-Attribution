@@ -14,8 +14,8 @@ names:
     f(n) = n                 the linear case    (the coefficient-shift ambiguity)
     f(n) = n(n-1)/2          the quadratic case (the aggregate interaction term)
 
-``w``, ``b`` and the noise scale are taken from the real seed-1 fit so the demo
-sits in the paper's regime rather than a convenient one.
+``w``, ``b`` and the noise scale are set to representative values so the demo
+sits in a realistic regime rather than a convenient one.
 
 Three sampling protocols, one estimator throughout (ridge with an unpenalised
 intercept -- i.e. fitted on the centered system, as everywhere in this paper):
@@ -55,7 +55,7 @@ sys.path.insert(0, str(ROOT / "src"))
 import numpy as np  # noqa: E402
 from scipy.linalg import cho_factor, cho_solve  # noqa: E402
 
-# ---- scales lifted from the real seed-1 fit (runs/..._A_collect/W.npz) -------
+# ---- representative scales for the synthetic regime --------------------------
 N_COMPONENTS = 3904
 W_SD = 0.109387          # per-example sd of the fitted attributions
 B_MEAN = 0.2795          # intercept
@@ -120,7 +120,7 @@ def main() -> int:
     print("SYNTHETIC IDENTIFIABILITY DEMONSTRATION -- no network, no ablation: the design alone")
     print("=" * 104)
     print(f"  N = {N}   m = {m}   lambda = {LAMBDA:g}   ridge with UNPENALISED intercept")
-    print(f"  scales from the real seed-1 fit: sd(w) = {W_SD}, noise sd = {NOISE_SD}")
+    print(f"  synthetic scales: sd(w) = {W_SD}, noise sd = {NOISE_SD}")
     print(f"  A: fixed k = {k}    B: k in {{{k1}, {k2}}}    C: Bernoulli(keep = {p_keep})")
     print(f"  OOD transfer evaluated at k = {ood_ks}")
     print()

@@ -1,6 +1,6 @@
 # WP9 -- ViT-Tiny / CIFAR-10. Pre-reg: results/WP8_WP9_prereg.md
-# Every stage is passed --config explicitly. Omitting it on one stage is what
-# produced results/BUG_precision_floor_wrong_checkpoint.md.
+# Every stage is passed --config explicitly. Omitting it on one stage can
+# silently load the wrong checkpoint.
 $ErrorActionPreference="Continue"
 $root="D:\naca"; $py="$root\venv\Scripts\python.exe"
 $cfg="$root\configs\setup_c_vit.yaml"; $log="$root\runs\wp9.log"

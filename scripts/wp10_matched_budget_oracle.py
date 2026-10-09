@@ -33,8 +33,8 @@ from wp1d_structure_and_fig13 import (  # noqa: E402
 )
 
 SEEDS = [
-    ("seed 1", "20260824_015507_A_collect", "setup_a.yaml"),
-    ("seed 2", "20260826_124436_A-s1_collect", "setup_a_seed1_full.yaml"),
+    ("seed 1", "YOUR_SEED1_COLLECT_DIR", "setup_a.yaml"),
+    ("seed 2", "YOUR_SEED2_COLLECT_DIR", "setup_a_seed1_full.yaml"),
     ("seed 3", "*_A-s2_collect", "setup_a_seed2.yaml"),
     ("seed 4", "*_A-s3_collect", "setup_a_seed3.yaml"),
     ("seed 5", "*_A-s4_collect", "setup_a_seed4.yaml"),

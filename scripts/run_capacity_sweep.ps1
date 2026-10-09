@@ -1,5 +1,5 @@
 $ErrorActionPreference = "Continue"
-$root="D:\naca"; $runDir="$root\runs\20260824_015507_A_collect"; $py="$root\venv\Scripts\python.exe"
+$root="D:\naca"; $runDir="$root\runs\YOUR_SEED1_COLLECT_DIR"; $py="$root\venv\Scripts\python.exe"
 $log="$root\runs\remaining.log"
 $env:NACA_ROOT="D:\naca"; $env:TORCH_HOME="D:\naca\cache\torch"; $env:HF_HOME="D:\naca\cache\hf"
 $env:MPLCONFIGDIR="D:\naca\cache\mpl"; $env:TMPDIR="D:\naca\cache\tmp"

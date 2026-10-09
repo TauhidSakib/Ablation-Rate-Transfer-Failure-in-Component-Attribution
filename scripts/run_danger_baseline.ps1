@@ -6,7 +6,7 @@
 # directory is exactly the mistake the PID lock now prevents.
 $ErrorActionPreference = "Stop"
 $root   = "D:\naca"
-$runDir = "$root\runs\20260824_015507_A_collect"
+$runDir = "$root\runs\YOUR_SEED1_COLLECT_DIR"
 $py     = "$root\venv\Scripts\python.exe"
 $done   = "$runDir\naca_summary.json"
 

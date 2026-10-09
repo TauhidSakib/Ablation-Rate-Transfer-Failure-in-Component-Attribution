@@ -7,7 +7,7 @@
 # collector: it only launches when none is alive.
 $ErrorActionPreference = "Stop"
 $root    = "D:\naca"
-$runDir  = "D:\naca\runs\20260824_015507_A_collect"
+$runDir  = "D:\naca\runs\YOUR_SEED1_COLLECT_DIR"
 $done    = Join-Path $runDir "collect_metrics.json"
 $py      = "$root\venv\Scripts\python.exe"
 

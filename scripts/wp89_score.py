@@ -161,7 +161,7 @@ def fmt(v, spec: str) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--seed1", type=Path, default=ROOT / "runs" / "20260824_015507_A_collect")
+    ap.add_argument("--seed1", type=Path, default=ROOT / "runs" / "YOUR_SEED1_COLLECT_DIR")
     ap.add_argument("--wp8", type=Path, default=None)
     ap.add_argument("--wp9", type=Path, default=None)
     a = ap.parse_args()

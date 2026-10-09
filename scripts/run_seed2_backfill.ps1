@@ -4,7 +4,7 @@
 $ErrorActionPreference="Continue"
 $root="D:\naca"; $py="$root\venv\Scripts\python.exe"
 $cfg="$root\configs\setup_a_seed1_full.yaml"; $log="$root\runs\wp10.log"
-$rd="$root\runs\20260826_124436_A-s1_collect"
+$rd="$root\runs\YOUR_SEED2_COLLECT_DIR"
 $env:NACA_ROOT="D:\naca"; $env:TORCH_HOME="D:\naca\cache\torch"; $env:HF_HOME="D:\naca\cache\hf"
 $env:MPLCONFIGDIR="D:\naca\cache\mpl"; $env:TMPDIR="D:\naca\cache\tmp"
 $env:TEMP="D:\naca\cache\tmp"; $env:TMP="D:\naca\cache\tmp"; $env:PYTHONUTF8="1"

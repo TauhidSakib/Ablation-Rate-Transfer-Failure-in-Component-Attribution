@@ -1,6 +1,6 @@
 """Score WP7 against its pre-registration and emit the final two-seed table.
 
-Pre-registration: results/PREREG_wp7_seed2_full.md, written before collection.
+Pre-registration: results/PREREG_wp7_seed2_full.md, written in advance.
 Reading committed in advance:
 
   NAF(K=25) rises toward ~0.029  -> the seed-2 shortfall was screening noise from
@@ -20,7 +20,7 @@ import os
 from pathlib import Path
 
 ROOT = Path(os.environ.get("NACA_ROOT", r"D:\naca"))
-S1 = ROOT / "runs" / "20260824_015507_A_collect"
+S1 = ROOT / "runs" / "YOUR_SEED1_COLLECT_DIR"
 
 
 def naf_at(run: Path, tag: str, alpha: float = 0.10):
@@ -119,7 +119,7 @@ def main() -> int:
 
     out = {"table": {str(k): v for k, v in table.items()}, "verdict": verdict,
            "ratio_seed1": ratio_1, "ratio_seed2_50k": ratio_2,
-           "note": "thresholds fixed in PREREG_wp7_seed2_full.md before collection"}
+           "note": "thresholds fixed in PREREG_wp7_seed2_full.md in advance"}
     (ROOT / "results" / "wp7_score.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
     print(f"\nwrote {ROOT / 'results' / 'wp7_score.json'}")
 

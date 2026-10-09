@@ -11,7 +11,7 @@ any guarantee for the greedy selection in Stage 4. So::
 with ``r_P = 0`` recovering the PSD ablation arm.
 
 Cost: ``K(r_U + r_P) = 1600`` parameters against ``m >= 50,000`` samples, fitted
-on the counterfactuals COAR already collected. **Zero additional forward passes
+on the counterfactuals COAR collects. **Zero additional forward passes
 through the target model** -- the load-bearing feasibility claim of the project.
 
 Identifiability
@@ -243,7 +243,7 @@ def fit_interaction(
     seed: int = 0,
     verbose: bool = True,
 ) -> InteractionModel:
-    """Fit ``A`` per example on the counterfactuals COAR already collected.
+    """Fit ``A`` per example on the counterfactuals COAR collects.
 
     With ``freeze_linear=True`` the linear part is held at its Stage-1 value, so
     this is exactly "fit the quadratic to the Stage-1 residual". With

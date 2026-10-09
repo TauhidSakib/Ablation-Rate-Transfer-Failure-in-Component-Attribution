@@ -2,7 +2,7 @@
 # Sequential: only one torch process fits in RAM here.
 $ErrorActionPreference = "Continue"
 $root   = "D:\naca"
-$runDir = "$root\runs\20260824_015507_A_collect"
+$runDir = "$root\runs\YOUR_SEED1_COLLECT_DIR"
 $py     = "$root\venv\Scripts\python.exe"
 $log    = "$root\runs\chain.log"
 function Note($m) { Add-Content $log "$(Get-Date -Format 'HH:mm:ss')  $m" }

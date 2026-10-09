@@ -10,7 +10,7 @@
 # path match only ever sees the stub and misses the worker.
 $ErrorActionPreference = "Continue"
 $root   = "D:\naca"
-$runDir = "$root\runs\20260824_015507_A_collect"
+$runDir = "$root\runs\YOUR_SEED1_COLLECT_DIR"
 $py     = "$root\venv\Scripts\python.exe"
 $log    = "$root\runs\remaining.log"
 

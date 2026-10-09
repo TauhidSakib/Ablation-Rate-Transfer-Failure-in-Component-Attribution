@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(os.environ.get("NACA_ROOT", r"D:\naca"))
-RUN = ROOT / "runs" / "20260824_015507_A_collect"
+RUN = ROOT / "runs" / "YOUR_SEED1_COLLECT_DIR"
 
 
 def rule(t=""):

@@ -1,5 +1,5 @@
 # WP5 -- seed-2 replication, end to end, unattended.
-# Pre-registration: results/PREREG_wp5_seed2.md (written before this ran).
+# Pre-registration: results/PREREG_wp5_seed2.md (written in advance).
 # Nothing here is tuned to make seed 2 agree with seed 1.
 $ErrorActionPreference = "Continue"
 $root="D:\naca"; $py="$root\venv\Scripts\python.exe"

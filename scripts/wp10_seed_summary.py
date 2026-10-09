@@ -20,8 +20,8 @@ ALPHAS = (0.01, 0.05, 0.10, 0.20)
 
 # (label, run-dir glob, m_train)
 SEEDS = [
-    ("seed 1", "20260824_015507_A_collect", 50000),
-    ("seed 2", "20260826_124436_A-s1_collect", 50000),
+    ("seed 1", "YOUR_SEED1_COLLECT_DIR", 50000),
+    ("seed 2", "YOUR_SEED2_COLLECT_DIR", 50000),
     ("seed 3", "*_A-s2_collect", 25000),
     ("seed 4", "*_A-s3_collect", 25000),
     ("seed 5", "*_A-s4_collect", 25000),
